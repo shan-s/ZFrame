@@ -1,0 +1,21 @@
+[project]
+name = "zframe-spike"
+version = "0.0.0"
+description = "ZFrame reconstruction spike — validates the VGGT + gsplat capability claim. Disposable."
+requires-python = ">=3.11"
+
+# Local driver only. Everything heavy (torch, VGGT, gsplat, Open3D, pycolmap)
+# lives in the Modal image defined in spike/modal_app.py and is never installed here.
+dependencies = [
+    "modal==1.5.5",  # pinned per AGENTS.md §3
+]
+
+[tool.zframe]
+# Upstream pins. Do not float these to a branch — gsplat's last tagged release
+# (v1.5.3) is well behind main, so a SHA is the only honest pin.
+vggt_commit = "a288dd0f14786c93483e45524328726ab7b1b4ce"
+gsplat_commit = "28e794ca44a4c25ffc39175370c5ee7b38bfcc36"
+
+# AGENTS.md §1: the commercial checkpoint, never facebook/VGGT-1B.
+vggt_hf_repo = "facebook/VGGT-1B-Commercial"
+vggt_hf_file = "vggt_1B_commercial.pt"

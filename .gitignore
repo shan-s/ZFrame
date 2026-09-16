@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Spike artifacts — never commit reconstruction output or captures
+/scenes/
+/out/
+/artifacts/
+*.glb
+*.ply
+*.mp4
+*.mov
+*.splat
+*.ckpt
+*.pt
+
+# Local tooling
+.env
+.DS_Store
